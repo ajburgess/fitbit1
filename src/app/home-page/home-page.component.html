@@ -1,0 +1,21 @@
+<div *ngIf="!isSignedIn">
+    <p>You are not currently authenticated by FitBit.</p>
+    <p>
+        <button (click)="signIn()">Sign In</button>
+    </p>
+</div>
+
+<div *ngIf="isSignedIn">
+    <p>
+        You are now authenticated (we have an access token).
+        <button (click)="signOut()">Sign Out</button>
+    </p>
+    <p>
+        <button (click)="getTodaysActivities()">Get today's activities</button>
+    </p>
+    <ul>
+        <li *ngFor="let activity of activities">
+            {{activity.name}} ({{activity.distance}})
+        </li>
+    </ul>
+</div>
